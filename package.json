@@ -1,0 +1,25 @@
+{
+  "name": "chmdebeer",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chmdebeer/chmdebeer.git"
+  },
+  "main": "server",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node node_modules/lab/bin/lab -c --lint"
+  },
+  "dependencies": {
+    "good": "latest",
+    "good-console": "latest",
+    "handlebars": "latest",
+    "hapi": "latest",
+    "hapi-redirects": "latest",
+    "inert": "latest",
+    "nconf": "latest",
+    "socket.io": "latest",
+    "vision": "latest"
+  }
+}
