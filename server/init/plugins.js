@@ -7,15 +7,21 @@ var registerPlugins = function (server) {
 
   var plugins = [
     require('inert'),
-    require('vision'),
-    require('./socketio')
+    require('vision')
+    //require('./socketio')
   ];
 
-  var goodOptions = {
-    reporters: [{
-      reporter: require('good-console'),
-      events: { log: '*', response: '*' }
-    }]
+  const goodOptions = {
+    ops: {
+      interval: 10000
+    },
+    reporters: {
+      myConsoleReporter: [
+        {
+          module: 'good-console'
+        }, 'stdout'
+      ]
+    }
   };
 
   plugins.push({

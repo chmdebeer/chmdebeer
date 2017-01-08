@@ -35,6 +35,7 @@ var start = function () {
       html: require('handlebars')
     },
     layout: true,
+    isCached: false,
     relativeTo: __dirname,
     path: 'server/views',
     layoutPath: 'server/views/layout',

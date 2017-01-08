@@ -2,7 +2,7 @@
 
 exports.index = {
   handler: function (request, reply) {
-    reply.view('index')
+    reply.view('index', {title: 'Marius de Beer'})
   }
 };
 
