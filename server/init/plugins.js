@@ -7,8 +7,8 @@ var registerPlugins = function (server) {
 
   var plugins = [
     require('inert'),
-    require('vision')
-    //require('./socketio')
+    require('vision'),
+    require('./socketio')
   ];
 
   const goodOptions = {

@@ -2,7 +2,27 @@
 
 exports.index = {
   handler: function (request, reply) {
-    reply.view('index', {title: 'Marius de Beer'})
+    reply.view('index', {
+      title: 'Marius de Beer',
+      multiplex: {
+        key: 'someKey',
+        id: '1234',
+        url: 'http://localhost:30866'
+      }
+    });
+  }
+};
+
+exports.client = {
+  handler: function (request, reply) {
+    reply.view('index', {
+      title: 'Marius de Beer',
+      multiplex: {
+        key: '',
+        id: '1234',
+        url: 'http://localhost:30866'
+      }
+    });
   }
 };
 
@@ -21,6 +41,15 @@ exports.career = {
 exports.welcome = {
   handler: function (request, reply) {
     reply(welcome)
+  }
+};
+
+exports.notes = {
+  handler: function (request, reply) {
+    reply.view('notes', {
+      socketId: request.params.socketId,
+      layout: ''
+    });
   }
 };
 

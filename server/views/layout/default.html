@@ -61,6 +61,16 @@
 
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+
+        {{#if multiplex}}
+            multiplex: {
+                // Example values. To generate your own, see the socket.io server instructions.
+                secret: '{{multiplex.key}}', // null so the clients do not have control of the master presentation
+                id: '{{multiplex.id}}', // id, obtained from socket.io server
+                url: '{{multiplex.url}}' // Location of socket.io server
+            },
+        {{/if}}
+    
         // Optional reveal.js plugins
         dependencies: [
             { src: '/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -68,7 +78,20 @@
             { src: '/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
             { src: '/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
             { src: '/plugin/zoom-js/zoom.js', async: true },
-            { src: '/plugin/notes/notes.js', async: true },
+
+            {{#if multiplex}}
+            
+                { src: '//cdn.socket.io/socket.io-1.3.5.js', async: true },
+
+                {{#if multiplex.key}}
+                    { src: '/plugin/multiplex/master.js', async: true },
+                    { src: '/plugin/notes-server/client.js', async: true },
+                {{else}}
+                    { src: '/plugin/multiplex/client.js', async: true },
+                {{/if}}
+
+            {{/if}}
+
             { src: '/plugin/timeline/reveal-timeline.js', async: true, condition: function() { return !!document.querySelector( '[data-timeline]' ); } }
         ]
     });

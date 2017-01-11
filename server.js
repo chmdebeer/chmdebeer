@@ -38,6 +38,7 @@ var start = function () {
     isCached: false,
     relativeTo: __dirname,
     path: 'server/views',
+    layout: 'default',
     layoutPath: 'server/views/layout',
     partialsPath: 'server/views/partials',
     helpersPath: 'server/views/helpers'

@@ -12,6 +12,9 @@ var registerRoutes = function (server) {
     { method: 'GET', path: '/cdo1', config: cdo1.index },
     { method: 'GET', path: '/welcome', config: chmdebeer.welcome },
 
+    { method: 'GET', path: '/client/', config: chmdebeer.client },
+    { method: 'GET', path: '/notes/{socketId}', config: chmdebeer.notes },
+
     { method: 'GET', path: '/img/{path*}', config: assets.img },
     { method: 'GET', path: '/css/{path*}', config: assets.css },
     { method: 'GET', path: '/fonts/{path*}', config: assets.fonts },
